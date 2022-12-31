@@ -1,0 +1,24 @@
+﻿--全局简化设置
+_G.GameObject = CS.UnityEngine.GameObject;
+_G.Vector3 = CS.UnityEngine.Vector3;
+_G.Button = CS.UnityEngine.UI.Button;
+_G.InputField = CS.UnityEngine.UI.InputField;
+_G.Debug = CS.UnityEngine.Debug;
+_G.UIManager = require("Manager/UIManager");
+
+local Main = {}; --自定义模块
+local this = Main;
+
+local function Init()
+	--print('hello gamemanager');
+
+	local uimanager = new GameObject("UIManager");
+	--uimanager.transform.
+	
+	local login = require "UI/UI_Login"
+	login.OnCreate();
+end
+
+this.Init = Init;
+Main.Init();
+return Main;

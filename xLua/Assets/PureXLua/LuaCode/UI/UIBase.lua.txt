@@ -1,0 +1,43 @@
+_G.UIBase = {}; --自定义模块
+
+--local function __init(self, model)
+-- 如非必要，别重写构造函数，使用OnCreate初始化
+local function __init(self, ui_name)
+    print('__init');
+    -- 回调管理，使其最长保持和Model等同的生命周期
+    self.__ui_callback = {}
+    self.__data_callback = {}
+    self.__ui_name = ui_name
+    self:OnCreate()
+end
+
+-- 创建
+local function OnCreate(self)
+    -- 窗口生命周期内保持的成员变量放这
+end
+
+-- 注册消息
+local function OnAddListener(self)
+end
+
+-- 注销消息
+local function OnRemoveListener(self)
+end
+
+-- 注册游戏数据监听事件，别重写
+local function AddDataListener(self, msg_name, callback)
+    --local bindFunc = Bind(self, callback)
+    --AddCallback(self.__data_callback, msg_name, bindFunc)
+    --DataManager:GetInstance():AddListener(msg_name, bindFunc)
+end
+
+-- 注销游戏数据监听事件，别重写
+local function RemoveDataListener(self, msg_name, callback)
+    --local bindFunc = GetCallback(self.__data_callback, msg_name)
+    --RemoveCallback(self.__data_callback, msg_name, bindFunc)
+    --DataManager:GetInstance():RemoveListener(msg_name, bindFunc)
+end
+
+UIBase.__init = __init;
+UIBase.OnCreate = OnCreate;
+return UIBase;

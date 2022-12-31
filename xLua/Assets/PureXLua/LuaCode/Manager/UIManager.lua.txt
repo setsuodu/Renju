@@ -1,0 +1,23 @@
+print('hello uimanager')
+local UIManager = {};
+local this = UIManager;
+
+local Parent = GameObject.Find("Canvas").transform;
+local stack = {};
+
+local function Push()
+
+end
+
+local function Pop()
+
+end
+
+local function GetUI()
+
+end
+
+this.Push = Push;
+this.Pop = Pop;
+this.GetUI = GetUI;
+return UIManager;

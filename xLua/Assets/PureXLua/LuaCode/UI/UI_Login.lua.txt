@@ -1,0 +1,43 @@
+--_G.BaseClass = require("UI/BaseClass");
+--local UI_Login = BaseClass("UI_Login", UIBase);
+--local base = UIBase;
+
+local UI_Login = {};
+local this = UI_Login;
+
+local obj;
+local loginPanel;
+local nameInput;
+local pwdInput;
+local loginBtn;
+
+local function OnCreate()
+    local canvas = GameObject.Find("Canvas").transform;
+    local prefab = CS.ResManager.LoadPrefab("UI/UI_Login");
+    obj = GameObject.Instantiate(prefab, canvas);
+    obj.transform.localPosition = Vector3.zero;
+    obj.name = "UI_Login";
+    
+    loginPanel = obj.transform:Find("LoginPanel");
+    nameInput = obj.transform:Find("LoginPanel/NameInput"):GetComponent(typeof(InputField));
+    pwdInput = obj.transform:Find("LoginPanel/PwdInput"):GetComponent(typeof(InputField));
+    loginBtn = obj.transform:Find("LoginPanel/LoginBtn"):GetComponent("Button");
+    loginBtn.onClick:AddListener(this.OnLoginClick);
+end
+
+local function OnLoginClick()
+    Debug.Log("send login: " .. nameInput.text .. ":" .. pwdInput.text);
+    obj:SetActive(false);
+    
+    local game = require "UI/UI_Game"
+    game.OnCreate();
+end
+
+local function Pop()
+    UIManager.Pop(this);
+end
+
+
+this.OnCreate = OnCreate;
+this.OnLoginClick = OnLoginClick;
+return UI_Login;

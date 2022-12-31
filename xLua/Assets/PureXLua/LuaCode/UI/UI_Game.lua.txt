@@ -1,0 +1,25 @@
+local UI_Game = {};
+local this = UI_Game;
+
+local obj;
+
+local function OnCreate()
+    local canvas = GameObject.Find("Canvas").transform;
+    local prefab = CS.ResManager.LoadPrefab("UI/UI_Game");
+    obj = GameObject.Instantiate(prefab, canvas);
+    obj.transform.localPosition = Vector3.zero;
+    obj.name = "UI_Game";
+end
+
+local function OnLoginClick()
+    obj:SetActive(false);
+end
+
+local function Pop()
+    UIManager.Pop(this);
+end
+
+
+this.OnCreate = OnCreate;
+this.OnLoginClick = OnLoginClick;
+return UI_Game;
