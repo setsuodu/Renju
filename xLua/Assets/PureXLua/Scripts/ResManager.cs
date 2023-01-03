@@ -100,6 +100,19 @@ public class ResManager
 #endif
         return ta.text;
     }
+    public static string LoadTxt(string fileName)
+    {
+#if UNITY_EDITOR && !USE_ASSETBUNDLE
+        string filePath = $"{BUNDLES_FOLDER}/{fileName}.lua.txt";
+        return File.ReadAllText(filePath);
+#else
+        string filePath = GetFilePath($"{fileName}.unity3d");
+        AssetBundle asset = AssetBundle.LoadFromFile(filePath);
+        TextAsset ta = asset.LoadAllAssets()[0] as TextAsset;
+        asset.Unload(false);
+        return ta.text;
+#endif
+    }
 
     // ScriptableObject
     public static object LoadConfig(string configName)

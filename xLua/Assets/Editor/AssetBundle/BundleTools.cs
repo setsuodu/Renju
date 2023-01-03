@@ -160,7 +160,7 @@ public partial class BundleTools : Editor
         MakeMD5();
 
         //删除第一次打包目录
-        //Directory.Delete(ConstValue.outputPath1st, true);
+        Directory.Delete(ConstValue.outputPath1st, true);
     }
 
     //manifest生成配置，资源版本
@@ -253,7 +253,7 @@ public partial class BundleTools : Editor
 
         BuildAssetBundles(target);
 
-        //Deploy(target);
+        Deploy(target);
 
         Debug.Log("打包完成");
     }

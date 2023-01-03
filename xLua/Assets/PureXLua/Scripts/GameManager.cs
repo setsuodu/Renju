@@ -38,13 +38,12 @@ public class GameManager : MonoBehaviour
     void OnInit()
     {
         luaenv.AddLoader(MyLoader); //加载搜索lua文件的路径
-        //luaenv.DoString("require 'main'"); //控制权交给Lua
+        luaenv.DoString("require 'main'"); //控制权交给Lua
     }
 
     private byte[] MyLoader(ref string filePath)
     {
-        //string path = Path.Combine(Application.streamingAssetsPath, filePath + ".lua.txt");
-        string path = Path.Combine(Application.dataPath, "PureXLua/LuaCode", filePath + ".lua.txt");
-        return System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)); //转字节码
+        string s = ResManager.LoadTxt($"LuaCode/{filePath}");
+        return System.Text.Encoding.UTF8.GetBytes(s); //转字节码
     }
 }
