@@ -3,5 +3,5 @@ guid: 014e95406ae704a478c54843a14ce92a
 TextScriptImporter:
   externalObjects: {}
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: luacode/ui/uibase
+  assetBundleVariant: unity3d

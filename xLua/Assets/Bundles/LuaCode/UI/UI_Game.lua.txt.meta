@@ -1,8 +1,7 @@
 fileFormatVersion: 2
 guid: 6c6431ba171ba1146bee15fd11a88887
-timeCreated: 1455708384
-licenseType: Pro
 TextScriptImporter:
+  externalObjects: {}
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: luacode/ui/ui_game
+  assetBundleVariant: unity3d

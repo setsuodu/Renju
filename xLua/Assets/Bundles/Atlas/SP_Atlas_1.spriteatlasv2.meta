@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: f4edb0c766c6b494b94b249e802fef0b
-NativeFormatImporter:
+guid: 382916ec7931a3c41beb6fad6d52c3e2
+SpriteAtlasImporter:
   externalObjects: {}
-  mainObjectFileID: 4343727234628468602
   userData: 
   assetBundleName: atlas/sp_atlas_1
   assetBundleVariant: unity3d
