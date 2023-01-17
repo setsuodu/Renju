@@ -19,6 +19,15 @@ local function Init()
 	login.OnCreate();
 end
 
+
+--测试Lua中调用CSharp
+local TestLuaCallCS = CS.TestLuaCallCS;
+local test = TestLuaCallCS();
+test.index = 66;
+print('test.index---'..test.index);
+print('test.Add---'..test.Add(test,1,2));
+
+
 this.Init = Init;
 Main.Init();
 return Main;

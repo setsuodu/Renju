@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using XLua;
 
-[LuaCallCSharp]
+[Hotfix]
 public class GameManager : MonoBehaviour
 {
     public static GameManager Get;
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     void OnDestroy()
     {
-        //luaenv?.Dispose();
+        //luaenv?.Dispose(); //已经结束嘞
         //luaenv = null;
     }
 
