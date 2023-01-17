@@ -20,12 +20,21 @@ local function Init()
 end
 
 
---测试Lua中调用CSharp
+----[[测试Lua中调用Hotfix
+local function Add(self, a, b)
+	return a - b;
+end
+xlua.hotfix(CS.TestLuaCallCS, 'Add', Add)
+--]]
+
+
+----[[测试Lua中调用CSharp
 local TestLuaCallCS = CS.TestLuaCallCS;
 local test = TestLuaCallCS();
 test.index = 66;
 print('test.index---'..test.index);
 print('test.Add---'..test.Add(test,1,2));
+--]]
 
 
 this.Init = Init;
